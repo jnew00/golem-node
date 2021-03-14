@@ -3,12 +3,19 @@ version: '3.5'
 services:
 
   node:
-    container_name: ${COMPOSE_PROJECT_NAME}_node
-    image: aabrioux/golem-node:latest
+    container_name: golem_node
+    image: jnew00/golem-node:0.6.1
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./data-node/ya-provider/:/root/.local/share/ya-provider/
-      - ./data-node/yagna/:/root/.local/share/yagna/
+      - /home/jason/golem-node/data-node/ya-provider/:/root/.local/share/ya-provider/
+      - /home/jason/golem-node/data-node/yagna/:/root/.local/share/yagna/
     devices:
       - /dev/kvm:/dev/kvm
+    environment:
+      - YA_PAYMENT_NETWORK=mainnet
+      - YA_ACCOUNT=0x7e85622e53B5B5224FC2d822f27084F4fA88FB3A
+    labels:
+      ofelia.enabled: "true"
+      ofelia.job-exec.golem-clean.schedule: "@daily"
+      ofelia.job-exec.golem-clean.command: "find /root/.local/share/ya-provider/exe-unit/cache/ -mtime +7 -type f -exec rm {} +"
