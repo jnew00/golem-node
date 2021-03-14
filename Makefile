@@ -1,7 +1,6 @@
 SHELL := /bin/bash
 .DEFAULT_GOAL := help
 
-include .env
 
 .PHONY: help
 help:		## Display this help message
