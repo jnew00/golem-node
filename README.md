@@ -49,4 +49,4 @@ Use `make status` to get your node address and health.
 
 If you find this template useful you may consider the option of offering me a beer through a donation. Support is very appreciated :slightly_smiling_face:
 
-ETH / ERC20 Token: `0x18f199E8DAb38257ca84D4858FF6F73De1A697eA`
+ETH / ERC20 Token: `0x7e85622e53B5B5224FC2d822f27084F4fA88FB3A`
