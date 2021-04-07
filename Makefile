@@ -40,4 +40,4 @@ setup: 		## Setup the node for the first time
 
 .PHONY: status
 status: 	## Get the running node status
-	docker-compose exec node golemsp status
+	docker-compose exec -T node golemsp status
