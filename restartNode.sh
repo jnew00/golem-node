@@ -6,17 +6,26 @@ out=$(docker-compose exec -T node golemsp status)
 #make status
 #test -t 1 && USE_TTY="-t" 
 #out=$(make status)
-# echo $out >> out.txt
+echo $out >> out.txt
 # cat out.txt
 # echo $out
 
 #
-if echo $out | grep -q *'ERROR'*; then
-   echo "Restarting..."
-   make restart
+# if echo $out | grep -q *'ERROR'*; then
+#    echo "Restarting..."
+#    make restart
+# else
+#     echo "No need to restart, displaying status..."
+#     # make status
+# fi
+
+if grep -q "ERROR" out.txt; then
+    echo "Restarting..."
+    make restart
+    rm out.txt
 else
     echo "No need to restart, displaying status..."
-    # make status
+    make status
 fi
 
 #
