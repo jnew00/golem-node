@@ -4,7 +4,7 @@ services:
 
   node:
     container_name: golem_node
-    image: jnew00/golem-node:pre-rel-v0.6.4-rc2
+    image: jnew00/golem-node:pre-rel-v0.6.4-rc4
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
